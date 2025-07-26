@@ -32,7 +32,7 @@ RUN zig build --release=safe
 FROM debian:latest
 
 # Copy the built binary
-COPY --from=zig-builder /app/zig-out/bin/app /usr/local/bin
+COPY --from=zig-builder /app/zig-out/bin/zap_test_app /usr/local/bin
 COPY --from=zig-builder /app/dist /app/dist
 
 # Set working directory
@@ -47,5 +47,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:${PORT}/health || exit 1
 
 # Run the application
-CMD ["/usr/local/bin/app"]
+CMD ["/usr/local/bin/zap_test_app"]
 
