@@ -1,0 +1,9 @@
+spec:
+  name: zap-test-app
+  services:
+  - dockerfile_path: Dockerfile
+    git:
+      branch: main
+      repo_clone_url: git@github.com:pollend/zap-test-app.git
+    name: zap-test-app 
+
